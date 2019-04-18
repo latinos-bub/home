@@ -10107,4 +10107,7 @@ exit
 >
 > 
 
-​	
+## access of java 
+
+![](.\images\public-protected-vs-all.png)
+
