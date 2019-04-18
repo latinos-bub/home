@@ -10095,4 +10095,16 @@ exit
 
 > elasticsearch 的 5.x 版本，安装插件使用 `${elasticsearch_home}/bin/elasticsearch-plugin.bat` 命令（2.x 版本，使用 plugin 即可）
 
+# 畅享游
+
+## maven项目中手动添加jar包
+
+> 获取到目的 jar 包后，执行以下命令即可将该 jar 包 纳入 maven 管理
+>
+> ```bash
+> mvn install:install-file -Dfile=jar包的位置 -DgroupId=该jar包在你所需引入的项目pom中定义的groupId -DartifactId=上面的artifactId -Dversion=上面的version -Dpackaging=jar
+> ```
+>
+> 
+
 ​	
