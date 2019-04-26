@@ -8051,21 +8051,24 @@ Vue 项目目录结构
 ```java
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
 #parse("File Header.java")
-
-
 /**
-  * @ClassName ${NAME}
-  * @Description TODO
-  * @Date ${DATE} ${TIME}
-  * @Author shiro.liang.yi@gmail.com
-  */
+ * @author: shiro.liang.yi@gmail.com
+ * @date: ${DATE} ${TIME}
+ * @description: 
+ * @version: 1.0
+ * @className: ${NAME}
+ */
 public class ${NAME} {
 
     
 }
 ```
 
+### 生成方法时自动添加注释
 
+> 注意：这种方式是在方法上面 写入`/**`，然后按下 `tab` 键
+
+![](.\images\annotation.png)
 
 
 
