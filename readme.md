@@ -10114,3 +10114,38 @@ exit
 
 ![](.\images\public-protected-vs-all.png)
 
+## java 中int 转 byte[] 
+> int 是 4 个字节，byte 是 1 个字节
+> 因此，int 转 byte ，直接截取 int 的最右边 8 位即可（当然会有精度上的缺失）
+> 因此一个 int 数值，转换成 byte[] 数组的话，会存储成 4 个元素，因为 byte[] 数组是存放的 byte,但是一个 int 需要 4 个 byte 才可以存储完
+> 我们来看一下 jdk 源码中的关于 int 转 byte[] 数组的实现
+```java
+// 0xFF 表示 int 数值的 255，即 1111 1111
+public static byte[] intToByteArray(int x){
+	return new byte[]{
+		(byte)((x >> 24) & 0xFF),
+		(byte)(x >> 16) & 0xFF),
+		(byte)(x >> 8) & 0xFF),
+		(byte)(x & 0xFF)
+	};
+}
+
+
+ // jdk 中 byte 数组 和 int 之前的转化源码
+    public static int byteArrayToInt(byte[] b){
+        return b[3] & 0xFF |
+                (b[2] & 0xFF) << 8 |
+                (b[1] & 0xFF) << 16 |
+                (b[0] & 0xFF) << 24;
+    }
+ 
+ // 再看一下 byte 转 int 的实现
+ public static int byteToInt(byte b){ // 这个 与运算 我没用过
+        // Java 总是把 byte 当做有符号处理,我们可以通过将其和 0xFF 进行二进制与 得到它的无符号值
+        return b & 0xFF;
+    }
+```
+    
+
+
+
