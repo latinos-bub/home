@@ -2069,6 +2069,58 @@ autocmd GUIEnter * simalt ~x
 
 ### vim-diff
 
+### vim 在 window 下的安装
+
+#### 下载
+
+在这个地址下载：<https://github.com/vim/vim/releases>
+
+#### 安装
+
+同意协议之后，选中 安装类型是 full 之后，一路下一步，一直安装即可（为了简单，安装到默认位置即可）
+
+#### 添加文件及文件夹
+
+安装完成后，在 `$HOME`(window 中既是 `~`) 目录下，创建一个文件夹和一个文件，文件夹起名为 `vimfiles`，文件起名为 `_vimrc`；如果你在许多教程中看到过 `.vim` `.vimrc`等这类文件/文件夹，请不要惊讶，因为这是写文章的作者完全不负责任，因为这类文件是 `unix/linux/macOS`等下面的配置项，在 window 下，我们不需要。
+
+#### 安装插件管理器
+
+这里我的插件管理器就选为 vundle 吧。
+
+> 1. 打开你的 powerShell，然后运行下面这段代码：
+>
+>    ```shell
+>    git clone https://github.com/gmarik/vundle.git $HOME\vimfiles\bundle\vundle
+>    ```
+>
+>    安装完，此刻在你的 ~/vimfiles/ 下面就会出现 vundle 了
+>
+> 2.  接下来，我们需要打开我们先前的 `_vimrc` 文件了（建议使用 vim 打开），然后在 `_vimrc` 中写入如下代码：
+>
+>    ```shell
+>    set nocompatible               " turns off legacy vi mode
+>    filetype off                   " required!
+>    
+>    set rtp+=~/vimfiles/bundle/vundle/
+>    call vundle#begin('~/vimfiles/bundle/vundle/')
+>    
+>    
+>    call vundle#end()
+>    filetype plugin indent on     " required!
+>    ```
+>
+>    注意，错一个字符都不行哦，建议拷贝
+>
+> 3.  现在我们已经装好 vundle 了，我们打开 vim，然后在输入如下命令即可了
+>
+>    ```shell
+>    :BundlePlugin Install
+>    ```
+>
+>    
+
+
+
 
 
 ## Shell
@@ -10145,7 +10197,7 @@ public static byte[] intToByteArray(int x){
         return b & 0xFF;
     }
 ```
-    
+
 
 
 
