@@ -10198,6 +10198,33 @@ public static byte[] intToByteArray(int x){
     }
 ```
 
+## Redis 
+
+### Redis 简介
+
+### Redis 安装
+
+### Redis 数据结构
+
+> redis 数据结构有 String，Hash，List，Set，SortedSet 以及 Geo（新增的用于表示地理位置）
+
+> String 数据结构的基本操作
+>
+> String 是 redis 中最简单的一种数据结构，和 MemCache 数据结构是一样的，Value 最大值为 512m
+
+| 命令  | 描述                                                         | 用法                                             |
+| ----- | ------------------------------------------------------------ | ------------------------------------------------ |
+| SET   | 1.将字符串值Value关联到Key<br />2.Key已关联则覆盖，无视类型<br />3.原本Key带有生存时间TTl，那么TTl被清除 | SET key value [EX seconds] [PX milliseconds] [NX |
+| GET   | 1.返回Key关联的字符串值<br />2.Key不存在返回nil<br />3.Key存储的不是字符串，返回错误，因为GET只用于处理字符串 | GET key                                          |
+| MSET  | 1.同时设置一个或多个Key-Value键值对<br />2.某个给定Key已经存在，那么MSET新值会覆盖旧值<br />3.如果上面的覆盖不是希望的，那么使用MSETNX命令，所有Key都不存在才会进行覆盖<br />4.**MSET是一个原子性操作**，所有Key都会在同一时间被设置，不会存在有些更新有些没更新的情况 | MSET key value [key value ...]                   |
+| MGET  | 1.返回一个或多个给定Key对应的Value<br />2.某个Key不存在那么这个Key返回nil | MGET key [key ...]                               |
+| SETEX | 1.将Value关联到Key<br />2.设置Key生存时间为seconds，单位为秒<br />3.如果Key对应的Value已经存在，则覆盖旧值<br />4.SET也可以设置失效时间，但是不同在于SETNX是一个原子操作，即关联值与设置生存时间同一时间完成 | SETEX key seconds value                          |
+| SETNX | 1.将Key的值设置为Value，当且仅当Key不存在<br />2.若给定的Key已经存在，SEXNX不做任何动作 | SETNX key value                                  |
+
+
+
+> 
+
 
 
 
